@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float lowerBoundPadding;
     InputAction moveAction;
     Vector3 moveVector;
-
     Vector2 minBounds;
     Vector2 maxBounds;
 
