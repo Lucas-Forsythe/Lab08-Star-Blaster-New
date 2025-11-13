@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float basefiringRate = 0.2f;
     [SerializeField] float projectileLifetime = 5f;
+    [SerializeField] AudioSource playerShootAudio;
 
     [Header("AI Variables")]
     [SerializeField] bool useAI = true;
@@ -61,6 +62,8 @@ public class Shooting : MonoBehaviour
 
             Rigidbody2D projectileRB = Projectile.GetComponent<Rigidbody2D>();
             projectileRB.linearVelocity = transform.up * projectileSpeed;
+
+            playerShootAudio.Play();
 
             Destroy(Projectile, projectileLifetime);
 
