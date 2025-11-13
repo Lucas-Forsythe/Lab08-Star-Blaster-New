@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] int damage = 10;
+
+    public int GetDamage()
     {
-        
+        return damage;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Hit()
     {
-        
+        Destroy(gameObject);
     }
 }

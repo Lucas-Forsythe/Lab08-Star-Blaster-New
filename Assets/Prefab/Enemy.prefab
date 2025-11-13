@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6922209668234277299}
   - component: {fileID: -7351459230903432326}
   - component: {fileID: -6562477535365685656}
+  - component: {fileID: 309057653913064891}
+  - component: {fileID: 1494671779545001025}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -110,6 +112,32 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.13, y: -3.85}
   m_Radius: 0.71525764
+--- !u!114 &309057653913064891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688131020671559943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39000b8893497c8459fc8a9b1439834e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damage: 25
+--- !u!114 &1494671779545001025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688131020671559943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc0ae4505e1992419f51cf100c8b983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  health: 5
 --- !u!1 &6124756631408036925
 GameObject:
   m_ObjectHideFlags: 0
