@@ -3,6 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health = 50;
+    [SerializeField] ParticleSystem hitParticles;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -10,6 +11,7 @@ public class Health : MonoBehaviour
         if (damageDealer != null)
         {
             TakeDamage(damageDealer.GetDamage());
+            PlayHitPaticles();
             damageDealer.Hit(); 
         }
     }
@@ -20,6 +22,15 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void PlayHitPaticles()
+    {
+        if (hitParticles != null)
+        {
+            ParticleSystem particles = Instantiate(hitParticles, transform.position, Quaternion.identity);
+            Destroy(particles, particles.main.duration + particles.main.startLifetime.constantMax);
         }
     }
 }
