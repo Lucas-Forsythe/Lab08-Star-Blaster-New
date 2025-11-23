@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: -393542150693675950}
   - component: {fileID: 7119855148913288022}
   - component: {fileID: 1056209100222033618}
+  - component: {fileID: 7870916208131295817}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -224,7 +225,7 @@ MonoBehaviour:
   basefiringRate: 0.2
   projectileLifetime: 5
   playerShootAudio: {fileID: 1056209100222033618}
-  useAI: 1
+  useAI: 0
   minimumFiringRate: 0.1
   fireingRateVariance: 0
   isFiring: 0
@@ -325,3 +326,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7870916208131295817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072689825389363366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc0ae4505e1992419f51cf100c8b983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  health: 50
+  hitParticles: {fileID: 0}
+  applyCameraShake: 1

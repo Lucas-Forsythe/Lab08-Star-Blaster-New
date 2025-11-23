@@ -16,11 +16,12 @@ public class Shooting : MonoBehaviour
     [SerializeField] float fireingRateVariance = 0f;
 
     [HideInInspector] public bool isFiring;
-
     Coroutine fireCoroutine;
+    AudioManager audioManager;
 
-    private void Start()
+    void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         if (useAI)
         {
             isFiring = true;
@@ -54,23 +55,24 @@ public class Shooting : MonoBehaviour
 
     IEnumerator FireContinuously()
     {
-        while (true)
+        while (isFiring)
         {
-            GameObject Projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-
-            Projectile.transform.rotation = transform.rotation;
-
-            Rigidbody2D projectileRB = Projectile.GetComponent<Rigidbody2D>();
-            projectileRB.linearVelocity = transform.up * projectileSpeed;
+            GameObject Projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+            Rigidbody2D rb = Projectile.GetComponent<Rigidbody2D>();
+            rb.linearVelocity = transform.up * projectileSpeed;
 
             playerShootAudio.Play();
-
             Destroy(Projectile, projectileLifetime);
 
             float waitTime = Random.Range(basefiringRate - fireingRateVariance, basefiringRate + fireingRateVariance);
+
             waitTime = Mathf.Clamp(waitTime, minimumFiringRate, float.MaxValue);
+
+            audioManager.PlayShootingSFX();
 
             yield return new WaitForSeconds(waitTime);
         }
+
+        fireCoroutine = null;
     }
 }
